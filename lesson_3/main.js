@@ -120,7 +120,7 @@
 // }
 // *************************************************Class********************************************
 // зробити масив з 10 чисел [2,17,13,6,22,31,45,66,100,-18]та:
-// let arr = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18]
+let arr = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18]
 
 //     1. перебрати його циклом while
 // let i = 0
@@ -145,7 +145,7 @@
 
 // 4. перебрати циклом for та вивести  числа тільки з непарним індексом
 // for (let i = 0; i < arr.length; i++) {
-//     if (!(i % 2)) {
+//     if (i % 2) {
 //         console.log(arr[i])
 //     }
 // }
@@ -248,7 +248,7 @@
 // let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
 // document.write(`<ul>`)
 // for (const item of listOfItems) {
-//     document.write(`${item} <br>`)
+//     document.write(`<li>${item} </li>`)
 // }
 // document.write(`</ul>`)
 
