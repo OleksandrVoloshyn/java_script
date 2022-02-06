@@ -26,14 +26,14 @@
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
 // let i = 0
-// while (i !== 10){
+// while (i < 20){
 //     document.write(`<h1>Шотатам</h1>`)
 //     i++
 // }
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всередині.
 // let i = 0
-// while (i !== 20){
+// while (i < 20){
 //     document.write(`<h1> Lorem ipsum dolor sit amet.${i} </h1>`)
 //     i++
 // }
@@ -124,7 +124,7 @@
 
 //     1. перебрати його циклом while
 // let i = 0
-// while(i !== arr.length){
+// while(i < arr.length){
 //     console.log(arr[i]);
 //     i++
 // }
@@ -136,7 +136,7 @@
 
 //     3. перебрати циклом while та вивести  числа тільки з непарним індексом
 // let i = 0
-// while(i !== arr.length){
+// while(i < arr.length){
 //     if (i % 2){
 //         console.log(arr[i])
 //     }
@@ -152,7 +152,7 @@
 
 // 5. перебрати циклом while та вивести  числа тільки парні  значення
 // let i = 0
-// while(i !== arr.length){
+// while(i < arr.length){
 //     if (!(arr[i]%2)){
 //         console.log(arr[i])
 //     }
@@ -168,7 +168,7 @@
 
 // 7. замінити кожне число кратне 3 на слово "okten"
 // let i = 0;
-// while (i !== arr.length){
+// while (i < arr.length){
 //     if(!(arr[i]%3)){
 //         arr[i] = 'okten'
 //     }
@@ -180,7 +180,7 @@
 // let reversArr = []
 // let a = 0
 // let b = arr.length - 1
-// while (a !== arr.length) {
+// while (a < arr.length) {
 //     reversArr[a] = arr[b]
 //     a++;
 //     b--;
@@ -191,19 +191,19 @@
 
 // 9.1
 // let i = arr.length-1
-// while(i > -1){
+// while(i >= 0){
 //     console.log(arr[i])
 //     i--
 // }
 
 // 9.2
-// for(let i = arr.length-1; i !== -1; i--){
+// for(let i = arr.length-1; i >= 0; i--){
 //     console.log(arr[i])
 // }
 
 // 9.3
 // let i = arr.length - 1;
-// while (i > -1){
+// while (i >= 0){
 //     if(i % 2){
 //         console.log(arr[i])
 //     }
@@ -211,7 +211,7 @@
 // }
 
 // 9.4
-// for (let i = arr.length - 1; i > -1; i--) {
+// for (let i = arr.length - 1; i >= 0; i--) {
 //     if (i % 2) {
 //         console.log(arr[i])
 //     }
@@ -219,7 +219,7 @@
 
 // 9.5
 // let i = arr.length - 1;
-// while (i !== -1) {
+// while (i >= 0) {
 //     if (!(arr[i] % 2)) {
 //         console.log(arr[i])
 //     }
@@ -227,7 +227,7 @@
 // }
 
 // 9.6
-// for (let i = arr.length-1; i !== -1; i--){
+// for (let i = arr.length-1; i >= 0; i--){
 //     if (!(arr[i]%2)){
 //         console.log(arr[i])
 //     }
