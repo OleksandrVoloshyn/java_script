@@ -236,3 +236,63 @@
 //
 // reverseArr([15, 7, 8, 9, 3])
 
+// *************************************************Additional************************************************
+
+// - створити функцію, яка якщо приймає один аргумент, просто вивдоить його, якщо два аргументи - складає або конкатенує їх між собою.
+// function concatOrLog(...arg) {
+//     if (arg.length === 1) {
+//         console.log(arg[0])
+//     } else {
+//         return arg[0] + arg[1]
+//     }
+//
+// }
+//
+// concatOrLog(1, '2');
+
+// - створити функцію  яка приймає два масиви та скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
+//     EXAMPLE:
+// [1,2,3,4]
+//     [2,3,4,5]
+// результат
+//     [3,5,7,9]
+// function concatArrs(arr1, arr2) {
+//     let res = []
+//     for (let i = 0; i < arr1.length; i++) {
+//         if (arr1[i] && arr2[i])
+//             res[res.length] = arr1[i] + arr2[i]
+//     }
+//     return res
+// }
+//
+// console.log(concatArrs([1, 2, 3, 4], [2, 3, 4, 5]));
+
+// - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
+// EXAMPLE:
+//     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
+// function getKeys(arr) {
+//     let keysArr = []
+//     for (const obj of arr) {
+//         for (const objKey in obj) {
+//             keysArr[keysArr.length] = objKey
+//         }
+//     }
+//     return keysArr
+// }
+//
+// console.log(getKeys([{'name': 'Dima', 'age': 13}, {'model': 'Camry'}]));
+
+//     - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
+// EXAMPLE:
+//     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
+// function getValues(arr) {
+//     let valuesArr = []
+//     for (const obj of arr) {
+//         for (const objKey in obj) {
+//             valuesArr[valuesArr.length] = obj[objKey]
+//         }
+//     }
+//     return valuesArr
+// }
+//
+// console.log(getValues([{name: 'Dima', age: 13}, {model: 'Camry'}]));
