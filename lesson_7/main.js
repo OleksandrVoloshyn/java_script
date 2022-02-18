@@ -331,4 +331,100 @@
 // ])
 
 // // ***************************************************closures****************************************************
-// https://github.com/GrayHead/js_demos/blob/master/js/preview/lesson7/lesson7_tasks/additional/%D1%81losures.pdf
+const getCustomData = () => {
+    // Функція яку буду використовувати в UserCard для historyLogs
+    //                                           date/month/year, hour:min:sec
+    let x = new Date()
+    return `${x.getDate()}/${x.getMonth() + 1}/${x.getFullYear()}, ${x.getHours()}:${x.getMinutes()}:${x.getSeconds()} `
+}
+
+
+class UserCard {
+    constructor(key) {
+        this.balance = 100
+        this.trasactionLimit = 100
+        this.historyLogs = []
+        this.key = key
+    }
+
+    getCardOptions() {
+        console.log(this)
+    }
+
+    putCredits(money) {
+        this.balance += money
+        console.log('Маєш кучу грошей')
+        this.historyLogs.push({'operationType': 'Put Credits', 'credits': money, 'operationTime': getCustomData()})
+    }
+
+    takeCredits(money) {
+        if (this.balance >= money && this.trasactionLimit >= money) {
+            this.balance -= money;
+            console.log(`Кошти успішно зняті, на вашому рахунку залишилось ${this.balance} дєнєг`)
+            this.historyLogs.push({'operationType': 'Get Money', 'credits': money, 'operationTime': getCustomData()})
+            return;
+        }
+        console.log('На вашому рахунку недостатньо коштів або лімін транзакцій вичерпано')
+
+    }
+
+    setTransactionLimit(newLimit) {
+        this.trasactionLimit = newLimit
+        this.historyLogs.push({'operationType': 'Change limit', 'credits': newLimit, 'operationTime': getCustomData()})
+        console.log('Ліміт змінено')
+    }
+
+    transferCredits(money, to) {
+        if (this.balance >= money && this.trasactionLimit >= money) {
+            const tax = (money / 100) / 2
+            this.balance -= money
+            to.balance += (money - tax)
+            console.log('Транзакція успішна')
+            return;
+        }
+        console.log('Упс перевірте будь ласка баланс та ліміт карти')
+
+    }
+
+}
+
+class UserAccount {
+    constructor(name) {
+        this.name = name;
+        this.cards = []
+    }
+
+    addCard() {
+        if (this.cards.length < 3) {
+            this.cards.push(new UserCard(this.cards.length + 1))
+            console.log('Карта успішно створенна')
+            return;
+        }
+        console.log('Кількість карт вичерпано')
+    }
+
+    getCardByKey(num) {
+        for (const card of this.cards) {
+            if (num === card.key) {
+                return card;
+            }
+        }
+        console.log('Карта з таким ключиком відсутня')
+    }
+}
+
+let user = new UserAccount('bob')
+user.addCard()
+user.addCard()
+
+let card1 = user.getCardByKey(1)
+let card2 = user.getCardByKey(2)
+
+card1.putCredits(500)
+card1.setTransactionLimit(800)
+card1.transferCredits(300, card2)
+
+card2.takeCredits(50)
+
+card1.getCardOptions()
+card2.getCardOptions()
