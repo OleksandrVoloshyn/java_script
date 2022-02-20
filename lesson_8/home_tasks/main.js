@@ -2,10 +2,10 @@
 //     - Напишіть код,  котрий :
 
 // -- отримує текст з параграфа з id "content"
-// console.log(document.getElementById('content').textContent);
+// console.log(document.getElementById('content').innerText);
 
 // -- отримує текст з блоку з id "rules"
-// console.log(document.getElementById('rules').textContent)
+// console.log(document.getElementById('rules').innerText)
 
 // -- замініть текст параграфа з id 'content' на будь-який інший
 // document.getElementById('content').innerText = 'txt txt txt txt txt txt txt';
