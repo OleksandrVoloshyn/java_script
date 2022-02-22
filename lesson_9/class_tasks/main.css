@@ -1,0 +1,26 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+.wrap {
+    width: 500px;
+    border: 2px solid red;
+}
+
+.duration {
+    display: flex;
+}
+
+.month {
+    width: 25%;
+}
+
+.hour {
+    width: 75%;
+}
+
+.txt_center {
+    text-align: center;
+}
