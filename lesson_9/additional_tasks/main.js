@@ -234,34 +234,34 @@ let usersList = [
 
 // Створити під кожен елемент окремий блок. В цьому блоці, під кожну властивість, та властивості внутрішніх об'єктів створити свої окремі блок.
 
-const createElement = (tag, content, className) => {
-    let res = document.createElement(tag)
-    if (content) {
-        res.innerText = content
-    }
-    if (className) {
-        res.classList.add(className)
-    }
-    return res
-}
-let main = createElement('main', null, 'main');
-
-const scan = (obj, father) => {
-    for (const objKey in obj) {
-        let value = obj[objKey]
-        if (typeof value === 'object') {
-            let newFather = createElement('div', '', objKey)
-            father.appendChild(newFather)
-            scan(value, newFather)
-        } else {
-            let innerBlock = createElement('div', value, objKey)
-            father.appendChild(innerBlock)
-        }
-    }
-}
-usersList.forEach(user => {
-    let el = createElement('div', null, 'wrap');
-    main.appendChild(el)
-    scan(user, el)
-})
-document.body.appendChild(main)
+// const createElement = (tag, content, className) => {
+//     let res = document.createElement(tag)
+//     if (content) {
+//         res.innerText = content
+//     }
+//     if (className) {
+//         res.classList.add(className)
+//     }
+//     return res
+// }
+// let main = createElement('main', null, 'main');
+//
+// const scan = (obj, father) => {
+//     for (const objKey in obj) {
+//         let value = obj[objKey]
+//         if (typeof value === 'object') {
+//             let newFather = createElement('div', null, objKey)
+//             father.appendChild(newFather)
+//             scan(value, newFather)
+//         } else {
+//             let innerBlock = createElement('div', value, objKey)
+//             father.appendChild(innerBlock)
+//         }
+//     }
+// }
+// usersList.forEach(user => {
+//     let el = createElement('div', null, 'wrap');
+//     main.appendChild(el)
+//     scan(user, el)
+// })
+// document.body.appendChild(main)
