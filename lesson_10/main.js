@@ -66,31 +66,70 @@
 // }
 // createList(comments)
 
-
 // ***********************************************CLASS***************************************************************************
 // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
 //     Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
 // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
-//
-//
+// let form1 = document.forms.form1;
+// let form2 = document.forms.form2;
+// let mainBtn = document.getElementById('main_btn');
+// mainBtn.addEventListener('click', () => {
+//     for (const item of [...form1,...form2]) {
+//         console.log(item.value)
+//     }
+// })
+
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
+// let mainForm = document.forms.main_form;
+// mainForm.onsubmit = (e) => {
+//     e.preventDefault()
+//     let row = e.target.row.value;
+//     let column = e.target.column.value;
+//     let txt = e.target.inside.value;
+//     let tableElement = document.createElement('table');
+//     tableElement.setAttribute('border','5px')
 //
-//
+//     for (let i = 0; i < row; i++) {
+//         let rowElement = document.createElement('tr')
+//         for (let j = 0; j < column; j++) {
+//             let columnElement = document.createElement('td');
+//             columnElement.innerText = txt
+//             rowElement.appendChild(columnElement)
+//         }
+//         tableElement.appendChild(rowElement)
+//     }
+//     document.body.appendChild(tableElement)
+// }
+
 // - Сворити масив не цензцрних слів.
 //     Сворити інпут текстового типу.
 //     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
 // кинути алерт з попередженням.
 //     Перевірку робити при натисканні на кнопку
+// let arrBadWord = ['asd', 'qwe', 'xxx']
+// let jail = []
+// let mainForm = document.forms.main_form;
 //
+// mainForm.addEventListener('submit', e => {
+//     e.preventDefault()
+//     console.log(e.target.xxx.value)
+//     for (const word of arrBadWord) {
+//         if (e.target.xxx.value.toLowerCase().includes(word)) {
+//             alert(`Нарушаєм !!!! Ваші документіки`)
+//             jail.push('Мамкин хуліган')
+//         }
+//     }
+// })
 //
 // - Сворити масив не цензцрних слів.
 //     Сворити інпут текстового типу.
 //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
 //     Кинути алерт з попередженням у випадку якщо містить.
 //     Перевірку робити при натисканні на кнопку
-
+//
+//todo                          Якщо я правильно зрозумів то це завдання дублює попереднє
 
 // ***********************************************Additional***************************************************************************
 // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
