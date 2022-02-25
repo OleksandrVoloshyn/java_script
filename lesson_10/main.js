@@ -1,15 +1,71 @@
 // - Создать произвольный елемент с id = text.  Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
-//
+// let textBlock = document.getElementById('text');
+// let myBtn = document.getElementsByTagName('button')[0];
+// myBtn.addEventListener('click', () => {
+//     textBlock.style.display = 'none'
+// })
+
 //     - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
-//
-// - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
-//
+// let btn = document.getElementsByTagName('button')[0];
+// btn.addEventListener('click',(e)=>{
+//     e.target.style.display = 'none'
+// })
+
+// - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
+// При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+// let form1 = document.forms.form1;
+// form1.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     +form1.age.value < 18 ? console.log('Ваш вік менший 18') : console.log('Вхід дозволений');
+// })
+
 // - Создайте меню, которое раскрывается/сворачивается при клике
-//
-//
+// let menuBlock = document.getElementsByClassName('menu')[0];
+// menuBlock.addEventListener('click', e => {
+//     for (const el of e.target.children) {
+//         el.classList.toggle('hidden')
+//     }
+// })
+
 // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
 //     Вывести список комментариев в документ, каждый в своем блоке.
 //     Добавьте каждому комментарию по кнопке для сворачивания его body.
+// let comments = [
+//     {'title': 'comment1', 'body': 'lorem ipsum dolo sit ameti 1'},
+//     {'title': 'comment2', 'body': 'lorem ipsum dolo sit ameti 2'},
+//     {'title': 'comment3', 'body': 'lorem ipsum dolo sit ameti 3'},
+//     {'title': 'comment4', 'body': 'lorem ipsum dolo sit ameti 4'},
+//     {'title': 'comment5', 'body': 'lorem ipsum dolo sit ameti 5'}
+// ]
+// const createList = comments => {
+//     let wrapBlock = document.createElement('div');
+//     wrapBlock.classList.add('wrap')
+//
+//     for (const comment of comments) {
+//         let commentBlock = document.createElement('div');
+//         commentBlock.innerText = comment['title'];
+//         commentBlock.classList.add(`${comment['title']}`)
+//
+//         let btn = document.createElement('button');
+//         btn.classList.add(`${comment['title']}_btn`)
+//         btn.innerText = 'Click'
+//         commentBlock.appendChild(btn)
+//
+//
+//         let bodyBlock = document.createElement('div');
+//         bodyBlock.innerText = comment['body']
+//         commentBlock.appendChild(bodyBlock)
+//
+//         btn.addEventListener('click', () => {
+//             bodyBlock.classList.toggle('hidden')
+//         })
+//
+//         wrapBlock.appendChild(commentBlock)
+//     }
+//     document.body.appendChild(wrapBlock)
+// }
+// createList(comments)
+
 
 // ***********************************************CLASS***************************************************************************
 // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
@@ -34,7 +90,6 @@
 //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
 //     Кинути алерт з попередженням у випадку якщо містить.
 //     Перевірку робити при натисканні на кнопку
-
 
 
 // ***********************************************Additional***************************************************************************
