@@ -135,39 +135,160 @@
 // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
 //     При лівому кліку миші вивести в консоль інформацію про блок або елемент на який відбувся клік.
 //     Інформація яку потрібно вивести: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
-//
+// document.addEventListener('click', e => {
+//     let el = e.target;
+//     console.log(`Назва тегу: ${el.nodeName.toLowerCase()}`)
+//     if (el.className) {
+//         console.log(`Класи елемента: ${el.className}`)
+//     }
+//     if (el.id) {
+//         console.log(`Ід елемента: ${el.id}`)
+//     }
+//     console.log(`Висота: ${el.clientHeight}px`)
+//     console.log(`Ширина: ${el.clientWidth}px`)
+//     console.log('-------------------------------------------')
+// })
+
+
 // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
 //     При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
 //     Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
-//
+// document.addEventListener('click', e => {
+//     let el = e.target
+//     let data = [`Висота: ${el.clientHeight}px`, `Ширина: ${el.clientWidth}px`]
+//     if (el.id) {
+//         data.unshift(`Ід елемента: ${el.id}`)
+//     }
+//     if (el.className) {
+//         data.unshift(`Класи елемента: ${el.className}`)
+//     }
+//     data.unshift(`Назва тегу: ${el.nodeName.toLowerCase()}`)
+//     alert(data)
+// })
+
 // -- взять массив пользователей
 // let usersWithAddress = [
-//     {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-//     {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
-//     {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-//     {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
-//     {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-//     {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
-//     {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
-//     {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
-//     {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
-//     {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-//     {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+//     {id: 1, name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+//     {id: 2, name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
+//     {id: 3, name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+//     {id: 4, name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
+//     {id: 5, name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+//     {id: 6, name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
+//     {id: 7, name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
+//     {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+//     {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
+//     {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+//     {id: 11, name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
 // ];
-// - Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
-// 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
-// 2й - оставляет старше 29 лет включительно
-// 3й - оставляет тех у кого город киев
-// Данные выводить в документ
+// // - Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
+// // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
+// // 2й - оставляет старше 29 лет включительно
+// // 3й - оставляет тех у кого город киев
+// // Данные выводить в документ
 //
-//
-//
+// let mainForm = document.forms.mainForm;
+// let usersUl = document.createElement('ul');
+// document.body.appendChild(usersUl)
+// mainForm.addEventListener('submit', e => {
+//         let data;
+//         e.preventDefault()
+//         usersUl.innerText = ''
+//         if (mainForm.status.checked && mainForm.age.checked && mainForm.city.checked) {
+//             data = usersWithAddress.filter(user => user.status).filter(user => user.age >= 29).filter(user => user.address.city === 'Kyiv')
+//         } else if (mainForm.status.checked && mainForm.age.checked) {
+//             data = usersWithAddress.filter(user => user.status).filter(user => user.age >= 29)
+//         } else if (mainForm.status.checked && mainForm.city.checked) {
+//             data = usersWithAddress.filter(user => user.status).filter(user => user.address.city === 'Kyiv')
+//         } else if (mainForm.age.checked && mainForm.city.checked) {
+//             data = usersWithAddress.filter(user => user.age >= 29).filter(user => user.address.city === 'Kyiv')
+//         } else if (mainForm.status.checked) {
+//             data = usersWithAddress.filter(user => user.status)
+//         } else if (mainForm.age.checked) {
+//             data = usersWithAddress.filter(user => user.age >= 29)
+//         } else if (mainForm.city.checked) {
+//             data = usersWithAddress.filter(user => user.address.city === 'Kyiv')
+//         }else {
+//             data = usersWithAddress
+//         }
+//         for (const user of data) {
+//             let li = document.createElement('li');
+//             li.innerText = `Name:${user.name}; covid:${user.status}; age:${user.age}; ${user.address.city}`
+//             usersUl.appendChild(li)
+//         }
+//     }
+// )
+
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
 // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
 // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
 //     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
-//
+// let structure = [];
+// let count = 0;
+// const scraper = start => {
+//     structure.push(start)
+//     if (start.children) {
+//         for (const child of start.children) {
+//             scraper(child)
+//         }
+//     }
+// }
+// scraper(document.getElementsByClassName('start')[0])
+// let nextBtn = document.getElementById('next');
+// nextBtn.addEventListener('click', () => {
+//     if (count < structure.length) {
+//         console.log(structure[count++]);
+//     }
+//     if (count >= structure.length) {
+//         if (structure[0].nextElementSibling){
+//             let nextSibling = structure[0].nextElementSibling
+//             count = 0
+//             structure = []
+//             scraper(nextSibling)
+//         }else {
+//             console.log('end')
+//         }
+//     }
+// })
+// let backBtn = document.getElementById('back');
+// backBtn.addEventListener('click', () => {
+//     if (count < structure.length && count >= 0 && structure[--count]) {
+//         console.log(structure[--count]);
+//     }else {
+//         console.log('end')
+//     }
+// })
+
+
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
-//
+// let imgArr = [
+//     {count: 1},
+//     'https://www.biletik.aero/upload/medialibrary/807/807f262b60da392f1e09aa6d33f20a9b.png',
+//     'https://static-cse.canva.com/blob/195615/paul-skorupskas-7KLa-xLbSXA-unsplash-2.jpg',
+//     'https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-ru.jpg'
+// ]
+// let backBtn = document.getElementById('back');
+// let nextBtn = document.getElementById('next');
+// let imgElement = document.getElementsByTagName('img')[0];
+// nextBtn.addEventListener('click', () => {
+//     let count = imgArr[0].count
+//     if (count > 0 && count < imgArr.length-1) {
+//         imgElement.src = imgArr[++imgArr[0].count]
+//     }
+// })
+// backBtn.addEventListener('click', () => {
+//     let count = imgArr[0].count
+//     if (count > 1 && count < imgArr.length) {
+//         imgElement.src = imgArr[--imgArr[0].count]
+//     }
+// })
+
+
 //     Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
+// window.addEventListener('mouseup', (e) => {
+//     let content = e.target.innerText
+//     if (window.getSelection()) {
+//         let txt = window.getSelection().toString();
+//         e.target.innerHTML = content.replace(txt, `<b>${txt}</b>`)
+//     }
+// })
