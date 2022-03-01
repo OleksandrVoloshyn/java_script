@@ -178,7 +178,8 @@
 //     {id: 8, name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
 //     {id: 9, name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
 //     {id: 10, name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-//     {id: 11, name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+//     {id: 11, name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}},
+//     {id: 11, name: 'max', age: 21, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 121}}
 // ];
 // // - Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе так и по отдельности.
 // // 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
@@ -190,33 +191,33 @@
 // let usersUl = document.createElement('ul');
 // document.body.appendChild(usersUl)
 // mainForm.addEventListener('submit', e => {
-//         let data;
-//         e.preventDefault()
-//         usersUl.innerText = ''
-//         if (mainForm.status.checked && mainForm.age.checked && mainForm.city.checked) {
-//             data = usersWithAddress.filter(user => user.status).filter(user => user.age >= 29).filter(user => user.address.city === 'Kyiv')
-//         } else if (mainForm.status.checked && mainForm.age.checked) {
-//             data = usersWithAddress.filter(user => user.status).filter(user => user.age >= 29)
-//         } else if (mainForm.status.checked && mainForm.city.checked) {
-//             data = usersWithAddress.filter(user => user.status).filter(user => user.address.city === 'Kyiv')
-//         } else if (mainForm.age.checked && mainForm.city.checked) {
-//             data = usersWithAddress.filter(user => user.age >= 29).filter(user => user.address.city === 'Kyiv')
-//         } else if (mainForm.status.checked) {
-//             data = usersWithAddress.filter(user => user.status)
-//         } else if (mainForm.age.checked) {
-//             data = usersWithAddress.filter(user => user.age >= 29)
-//         } else if (mainForm.city.checked) {
-//             data = usersWithAddress.filter(user => user.address.city === 'Kyiv')
-//         }else {
-//             data = usersWithAddress
-//         }
-//         for (const user of data) {
-//             let li = document.createElement('li');
-//             li.innerText = `Name:${user.name}; covid:${user.status}; age:${user.age}; ${user.address.city}`
-//             usersUl.appendChild(li)
-//         }
+//     e.preventDefault()
+//     let data = []
+//     if (mainForm.status.checked) {
+//         data = usersWithAddress.filter(user => user.status)
 //     }
-// )
+//     if (mainForm.age.checked) {
+//         data.length ?
+//             data = data.filter(user => user.age >= 29) :
+//             data = usersWithAddress.filter(user => user.age >= 29)
+//     }
+//     if (mainForm.city.checked) {
+//         data.length ?
+//             data = data.filter(user => user.address.city === 'Kyiv') :
+//             data = usersWithAddress.filter(user => user.address.city === 'Kyiv')
+//     }
+//     if (!data.length) {
+//         data = usersWithAddress
+//     }
+//     usersUl.innerText = ''
+//     for (const user of data) {
+//         let li = document.createElement('li');
+//         li.innerText = `Name:${user.name}; covid:${user.status}; age:${user.age}; ${user.address.city}`
+//         usersUl.appendChild(li)
+//     }
+//
+//
+// })
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
 // при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
@@ -224,6 +225,7 @@
 //     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
 // let structure = [];
 // let count = 0;
+//
 // const scraper = start => {
 //     structure.push(start)
 //     if (start.children) {
@@ -232,36 +234,48 @@
 //         }
 //     }
 // }
+//
 // scraper(document.getElementsByClassName('start')[0])
 // let nextBtn = document.getElementById('next');
+//
 // nextBtn.addEventListener('click', () => {
 //     if (count < structure.length) {
 //         console.log(structure[count++]);
 //     }
 //     if (count >= structure.length) {
-//         if (structure[0].nextElementSibling){
+//         if (structure[0].nextElementSibling) {
 //             let nextSibling = structure[0].nextElementSibling
 //             count = 0
 //             structure = []
 //             scraper(nextSibling)
-//         }else {
+//         } else {
 //             console.log('end')
 //         }
 //     }
 // })
+//
 // let backBtn = document.getElementById('back');
+//
 // backBtn.addEventListener('click', () => {
-//     if (count < structure.length && count >= 0 && structure[--count]) {
+//     if (count < structure.length && count > 0) {
 //         console.log(structure[--count]);
-//     }else {
-//         console.log('end')
+//     } else if (count <= 0) {
+//         if (structure[0].previousElementSibling) {
+//             let prevSibling = structure[0].previousElementSibling
+//             structure = []
+//             scraper(prevSibling)
+//             count = structure.length
+//             console.log(structure[--count])
+//         } else {
+//             console.log('end')
+//         }
+//
 //     }
 // })
 
-
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+// let count = 0
 // let imgArr = [
-//     {count: 1},
 //     'https://www.biletik.aero/upload/medialibrary/807/807f262b60da392f1e09aa6d33f20a9b.png',
 //     'https://static-cse.canva.com/blob/195615/paul-skorupskas-7KLa-xLbSXA-unsplash-2.jpg',
 //     'https://imgv3.fotor.com/images/homepage-feature-card/Fotor-AI-photo-enhancement-tool-ru.jpg'
@@ -270,15 +284,13 @@
 // let nextBtn = document.getElementById('next');
 // let imgElement = document.getElementsByTagName('img')[0];
 // nextBtn.addEventListener('click', () => {
-//     let count = imgArr[0].count
-//     if (count > 0 && count < imgArr.length-1) {
-//         imgElement.src = imgArr[++imgArr[0].count]
+//     if (count >= 0 && count < imgArr.length-1) {
+//         imgElement.src = imgArr[++count]
 //     }
 // })
 // backBtn.addEventListener('click', () => {
-//     let count = imgArr[0].count
-//     if (count > 1 && count < imgArr.length) {
-//         imgElement.src = imgArr[--imgArr[0].count]
+//     if (count > 0 && count < imgArr.length) {
+//         imgElement.src = imgArr[--count]
 //     }
 // })
 
