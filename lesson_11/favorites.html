@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let usersBlock = document.createElement('div');
+    let users = JSON.parse(localStorage.getItem('favorites'));
+
+    if (users) {
+        users.forEach(user => {
+            let userBlock = document.createElement('div');
+            userBlock.innerText = JSON.stringify(user)
+            usersBlock.appendChild(userBlock)
+        })
+        document.body.appendChild(usersBlock)
+    }
+
+</script>
+</body>
+</html>
