@@ -63,6 +63,41 @@
 // Отримати відповідь з цього ресурсу відповідь, та вивести в документ як в прикладі на занятті
 // https://jsonplaceholder.typicode.com/posts
 //     зробити кнопку до кожного поста. при кліку на яку виводяться в окремий блок всі коментарі поточного поста
+//
+// fetch('https://jsonplaceholder.typicode.com/posts')
+//     .then(value => value.json())
+//     .then(posts => {
+//         let postsBlock = document.createElement('div');
+//
+//         posts.forEach(post => {
+//             let postBlock = document.createElement('div');
+//
+//             let userIdBlock = document.createElement('div');
+//             userIdBlock.innerText = `User Id - ${post.userId}`
+//             let idBlock = document.createElement('div');
+//             idBlock.innerText = `Id - ${post.id}`
+//             let titleBlock = document.createElement('div');
+//             titleBlock.innerHTML = `<b>Title</b>: ${post.title}`
+//             let bodyBlock = document.createElement('div');
+//             bodyBlock.innerHTML = `<b>Body</b>: ${post.body}`
+//             let commentsBlock = document.createElement('div');
+//             let hr = document.createElement('hr');
+//
+//             let btn = document.createElement('button');
+//             btn.innerText = 'Click'
+//             btn.addEventListener('click', e => {
+//                 fetch(`https://jsonplaceholder.typicode.com/posts/${post.userId}/comments`)
+//                     .then(value => value.json())
+//                     .then(comments => {
+//                         commentsBlock.innerText = JSON.stringify(comments)
+//                     })
+//             })
+//
+//             postBlock.append(userIdBlock, idBlock, titleBlock, bodyBlock, btn, commentsBlock, hr)
+//             postsBlock.appendChild(postBlock)
+//         })
+//         document.body.appendChild(postsBlock)
+//     })
 
 // ***************************************************Additional************************************************
 // 1.
