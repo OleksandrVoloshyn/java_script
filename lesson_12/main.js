@@ -1,14 +1,62 @@
-// 1.
-// Отримати відповідь з цього ресурсу відповідь, та вивести в документ об'єкти. Застилізувати, за допомоги css, щоб отримати 5 елементів в рядку.
-// Для кожного елементу свій блок div.post
-// Всі характеристики повинні мати свої блоки всередені div.post
-// https://jsonplaceholder.typicode.com/posts
+// // 1.
+// // Отримати відповідь з цього ресурсу відповідь, та вивести в документ об'єкти. Застилізувати, за допомоги css, щоб отримати 5 елементів в рядку.
+// // Для кожного елементу свій блок div.post
+// // Всі характеристики повинні мати свої блоки всередені div.post
+// // https://jsonplaceholder.typicode.com/posts
+// fetch('https://jsonplaceholder.typicode.com/posts')
+//     .then(value => value.json())
+//     .then(posts => {
+//         let postsBlock = document.createElement('div');
+//         postsBlock.classList.add('posts')
 //
+//         posts.forEach(post => {
+//             let postBlock = document.createElement('div');
+//             postBlock.classList.add('post')
+//
+//             let postTitleBlock = document.createElement('div');
+//             postTitleBlock.innerText = `title - ${post.title}`
+//             postTitleBlock.classList.add('post_title')
+//             let postBodyBlock = document.createElement('div');
+//             postBodyBlock.innerText = `body - ${post.body}`
+//             postBodyBlock.classList.add('post_body')
+//
+//             postBlock.append(postTitleBlock, postBodyBlock)
+//             postsBlock.appendChild(postBlock)
+//         })
+//         document.body.appendChild(postsBlock)
+//     })
+
 //     2.
 // Отримати відповідь з цього ресурсу відповідь, та вивести в документ як в прикладі на занятті.
 //     Для кожного елементу свій блок div.comment
 // Всі характеристики повинні мати свої блоки всередені div.comment
 // https://jsonplaceholder.typicode.com/comments
+// fetch('https://jsonplaceholder.typicode.com/comments')
+//     .then(value => value.json())
+//     .then(comments => {
+//         let commentsBlock = document.createElement('div');
+//
+//         comments.forEach(comment => {
+//             let commentBlock = document.createElement('div');
+//
+//             let postIdBlock = document.createElement('div');
+//             postIdBlock.innerText = `PostId - ${comment.postId}`
+//             let idBlock = document.createElement('div');
+//             idBlock.innerText = `Id - ${comment.id}`
+//             let nameBlock = document.createElement('h3');
+//             nameBlock.innerText = `Comment name: ${comment.name}`
+//             let emailBlock = document.createElement('div');
+//             emailBlock.innerText = `Email - ${comment.email}`
+//             let bodyBlock = document.createElement('p');
+//             bodyBlock.innerText = `Body - ${comment.body}`
+//             let hrBlock = document.createElement('hr');
+//
+//             commentBlock.append(postIdBlock, idBlock, nameBlock, emailBlock, bodyBlock,hrBlock)
+//             commentsBlock.appendChild(commentBlock)
+//         })
+//         document.body.appendChild(commentsBlock)
+//
+//     })
 
 // ***************************************************CLASS************************************************
 // 1.
