@@ -75,7 +75,7 @@
 //             let userIdBlock = document.createElement('div');
 //             userIdBlock.innerText = `User Id - ${post.userId}`
 //             let idBlock = document.createElement('div');
-//             idBlock.innerText = `Id - ${post.id}`
+//             idBlohttps://jsonplaceholder.typicode.com/usersck.innerText = `Id - ${post.id}`
 //             let titleBlock = document.createElement('div');
 //             titleBlock.innerHTML = `<b>Title</b>: ${post.title}`
 //             let bodyBlock = document.createElement('div');
@@ -105,3 +105,70 @@
 // https://jsonplaceholder.typicode.com/users
 //     кожному елементу юзера створити кнопку, при клику на яку в окремий блок виводяться всі пости поточного юзера.
 //     Кожному елементу post створити кнопку, при клику на яку в окремий блок виводяться всі коментарі поточного поста
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(value => value.json())
+    .then(users => {
+        let usersBlock = document.createElement('div');
+
+        users.forEach(user => {
+            let userBlock = document.createElement('div');
+
+            let idBlock = document.createElement('div');
+            idBlock.innerText = `Id - ${user.id}`
+            let nameBlock = document.createElement('div')
+            nameBlock.innerText = `Name ${user.name}`
+            let emailBlock = document.createElement('div')
+            emailBlock.innerText = `Name ${user.email}`
+            let hr = document.createElement('hr');
+            let postsBlock = document.createElement('div')
+
+            let showPostsBtn = document.createElement('button');
+            showPostsBtn.innerText = 'Show posts'
+            showPostsBtn.addEventListener('click', () => {
+                fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+                    .then(value => value.json())
+                    .then(posts => {
+                        posts.forEach(post => {
+                            let postBlock = document.createElement('div');
+
+                            let userIdOfPostBlock = document.createElement('div');
+                            userIdOfPostBlock.innerText = `User id ${post.userId}`
+                            let postIdBlock = document.createElement('div');
+                            postIdBlock.innerText = `Post id ${post.id}`
+                            let postTitleBlock = document.createElement('div');
+                            postTitleBlock.innerText = post.title
+                            let commentsBlock = document.createElement('div')
+                            let hrInPost = document.createElement('hr');
+
+                            let showCommentsBtn = document.createElement('button')
+                            showCommentsBtn.innerText = 'Show comments'
+                            showCommentsBtn.addEventListener('click', () => {
+                                fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
+                                    .then(value => value.json())
+                                    .then(comments => {
+                                        comments.forEach(comment =>{
+                                            let commentBlock = document.createElement('div')
+
+                                            let commentEmailBlock = document.createElement('div');
+                                            commentEmailBlock.innerText = comment.email
+                                            let commentBodyBlock = document.createElement('p')
+                                            commentBodyBlock.innerText = comment.body
+                                            let hr = document.createElement('hr');
+
+                                            commentBlock.append(commentEmailBlock,commentBodyBlock,hr)
+                                            commentsBlock.appendChild(commentBlock)
+                                        })
+                                    })
+                            })
+
+                            postBlock.append(userIdOfPostBlock, postIdBlock, postTitleBlock, showCommentsBtn, commentsBlock, hrInPost)
+                            postsBlock.appendChild(postBlock)
+                        })
+                    })
+            })
+
+            userBlock.append(idBlock, nameBlock, emailBlock, showPostsBtn, postsBlock, hr)
+            usersBlock.appendChild(userBlock)
+        })
+        document.body.appendChild(usersBlock)
+    })
