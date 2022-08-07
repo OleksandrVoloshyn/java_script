@@ -160,16 +160,14 @@ let rules = [
     },
 
 ];
-const createElement = (tag, content, className) => {
+const createElement = (tag, content, classNames) => {
     let res = document.createElement(tag)
     if (content) {
         res.innerText = content
     }
-    if (className) {
-        res.classList.add(className[0])
-        if (className[1]){
-            res.classList.add(className[1])
-        //    кастиль сільнєйший, можна ітерувати масив за потреби
+    if (classNames) {
+        for (const className of classNames) {
+            res.classList.add(className)
         }
     }
     return res
